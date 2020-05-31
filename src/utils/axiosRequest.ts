@@ -17,18 +17,18 @@ type AxiosMethod =
   | 'PATCH'
   | undefined;
 
-const axiosRequest = async (method: AxiosMethod, url: string, data: any) => {
+const axiosRequest = async (method: AxiosMethod, url: string, data?: any) => {
   console.log(data);
   try {
     const result = await axios({
       method,
       url,
-      data
+      data,
     });
 
     return {
       error: null,
-      data: result.data
+      data: result.data,
     };
   } catch (e) {
     let message;
@@ -47,7 +47,7 @@ const axiosRequest = async (method: AxiosMethod, url: string, data: any) => {
 
     return {
       error: message,
-      data: null
+      data: null,
     };
   }
 };
